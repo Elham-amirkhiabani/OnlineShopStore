@@ -1,13 +1,19 @@
-package OnlineShop;
+package OnlineShop.entity;
 
+import OnlineShop.enumeration.StatusEnum;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.*;
 
-public class Off {
+public class AbstractOff {
     private Long id;
     private String code;
-    private List<Product> productList;
-    private  StatusEnum offState;
+    private List<AbstractProduct> productList;
+    private StatusEnum offState;
     private Timestamp start;
     private Timestamp end;
     private Double discountRate;
@@ -33,11 +39,11 @@ public class Off {
     }
 
     @Column(name = "PRODUCTLIST", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public List<Product> getProductList() {
+    public List<AbstractProduct> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Product> productList) {
+    public void setProductList(List<AbstractProduct> productList) {
         this.productList = productList;
     }
 

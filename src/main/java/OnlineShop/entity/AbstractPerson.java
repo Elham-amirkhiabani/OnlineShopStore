@@ -1,6 +1,11 @@
-package OnlineShop;
+package OnlineShop.entity;
 
-public class Person {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class AbstractPerson {
     private Long id;
     private String userName;
     private String firstName;

@@ -1,15 +1,19 @@
-package OnlineShop;
+package OnlineShop.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.*;
 
-public class SaleLog {
+public class AbstractSaleLog {
     private Long id;
     private String code;
     private Date date;
     private Double amount;
     private Double receiveAmount;
     private Double discountAmount;
-    private List<BuyList> buyList;
+    private List<AbstractBuy> buyList;
     private String buyerName;
     private boolean sendStatus;
 
@@ -70,11 +74,11 @@ public class SaleLog {
     }
 
     @Column(name = "BUYLIST", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public List<BuyList> getBuyList() {
+    public List<AbstractBuy> getBuyList() {
         return buyList;
     }
 
-    public void setBuyList(List<BuyList> buyList) {
+    public void setBuyList(List<AbstractBuy> buyList) {
         this.buyList = buyList;
     }
 

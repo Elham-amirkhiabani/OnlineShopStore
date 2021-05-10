@@ -1,6 +1,11 @@
-package OnlineShop;
+package OnlineShop.entity;
 
-public class Credit {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class AbstractCredit {
     private Long id;
     private String amount;
 

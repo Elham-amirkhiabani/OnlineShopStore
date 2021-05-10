@@ -1,16 +1,20 @@
-package OnlineShop;
+package OnlineShop.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 import java.util.List;
 
-public class DiscountList {
+public class AbstractDiscounts {
     private Long id;
     private String code;
     private Timestamp start;
     private Timestamp end;
     private Double discountRate;
     private int usingCount;
-    private List<DiscountedUser> discountedUserList;
+    private List<AbstractDiscountedUser> discountedUserList;
 
 
     @Id
@@ -70,11 +74,11 @@ public class DiscountList {
     }
 
     @Column(name = "DISCOUNTEDUSERLIST", unique = false, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public List<DiscountedUser> getDiscountedUserList() {
+    public List<AbstractDiscountedUser> getDiscountedUserList() {
         return discountedUserList;
     }
 
-    public void setDiscountedUserList(List<DiscountedUser> discountedUserList) {
+    public void setDiscountedUserList(List<AbstractDiscountedUser> discountedUserList) {
         this.discountedUserList = discountedUserList;
     }
 }
