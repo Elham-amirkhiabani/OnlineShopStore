@@ -18,6 +18,9 @@ public class AbstractOff {
     private Timestamp end;
     private Double discountRate;
 
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "OffSequenceGenerator")
     @Column(name = "ID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
