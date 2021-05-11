@@ -2,13 +2,11 @@ package OnlineShop.entity;
 
 import OnlineShop.enumeration.StatusEnum;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.*;
 
+@MappedSuperclass
 public class AbstractOff {
     private Long id;
     private String code;
