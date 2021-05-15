@@ -3,7 +3,9 @@ package OnlineShop.entity;
 import org.dom4j.tree.AbstractComment;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @MappedSuperclass
 public class AbstractProduct {
@@ -18,7 +20,7 @@ public class AbstractProduct {
     private String categoryInfo;
     private String description;
     private Long buyerAvgScore;
-    private List<AbstractComment> commentlist;
+    private Set<Comment> commentList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "ProductSequenceGenerator")
@@ -121,12 +123,14 @@ public class AbstractProduct {
         this.buyerAvgScore = buyerAvgScore;
     }
 
-    @Column(name = "COMMENTLIST", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public List<AbstractComment> getCommentlist() {
-        return commentlist;
+    @OneToMany
+    @JoinColumn(name = "COMMENTS",foreignKey = @ForeignKey(name = "FK_PRODUCT_COMMENT") )
+    public Set<Comment> getCommentList() {
+        return commentList;
     }
 
-    public void setCommentlist(List<AbstractComment> commentlist) {
-        this.commentlist = commentlist;
+    public
+    void setCommentList(Set<Comment> commentList) {
+        this.commentList = commentList;
     }
 }
