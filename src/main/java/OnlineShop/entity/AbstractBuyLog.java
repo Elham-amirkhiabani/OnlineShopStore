@@ -1,9 +1,6 @@
 package OnlineShop.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 public class AbstractBuyLog {
@@ -13,7 +10,7 @@ public class AbstractBuyLog {
     private Double amount;
     private Double payment;
     private Double discountAmount;
-    private List<AbstractShopping> shoppingList;
+    private Set<Shopping> shoppingList;
     private String sellerName;
     private boolean deliverStatus;
 
@@ -73,12 +70,11 @@ public class AbstractBuyLog {
         this.discountAmount = discountAmount;
     }
 
-    @Column(name = "SHOPPINGLIST", unique = false, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public List<AbstractShopping> getShoppingList() {
-        return shoppingList;
-    }
+    @OneToMany
+    @JoinColumn(name = "SHOPPINGLIST",foreignKey = @ForeignKey(name = "FK_BUYLOG_SHOPPING") )
+    public Set<Shopping> getShoppingList() {return shoppingList;}
 
-    public void setShoppingList(List<AbstractShopping> shoppingList) {
+    public void setShoppingList(Set<Shopping> shoppingList) {
         this.shoppingList = shoppingList;
     }
 

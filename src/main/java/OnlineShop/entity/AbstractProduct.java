@@ -14,9 +14,9 @@ public class AbstractProduct {
     private String name;
     private String companyName;
     private Double price;
-    private Long sellerId;
+    private Set<SaleLog> sellerId;
     private Double count;
-    private Long categoryId;
+    private Set<Category> categoryId;
     private String categoryInfo;
     private String description;
     private Long buyerAvgScore;
@@ -69,12 +69,13 @@ public class AbstractProduct {
         this.price = price;
     }
 
-    @Column(name = "SELLERID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public Long getSellerId() {
+    @OneToMany
+    @JoinColumn(name = "SELLERID",foreignKey = @ForeignKey(name = "FK_PRODUCT_SELLER") )
+    public Set<SaleLog> getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(Long sellerId) {
+    public void setSellerId(Set<SaleLog> sellerId) {
         this.sellerId = sellerId;
     }
 
@@ -87,12 +88,13 @@ public class AbstractProduct {
         this.count = count;
     }
 
-    @Column(name = "CATEGORYID", unique = true, nullable = false, insertable = true, updatable = true, precision = 10, scale = 0)
-    public Long getCategoryId() {
+    @OneToMany
+    @JoinColumn(name = "CATEGORYID",foreignKey = @ForeignKey(name = "FK_PRODUCT_CATEGORY") )
+    public Set<Category> getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(Set<Category> categoryId) {
         this.categoryId = categoryId;
     }
 

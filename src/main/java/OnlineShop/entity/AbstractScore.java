@@ -19,7 +19,7 @@ public class AbstractScore {
     public void setId(Long id) {this.id = id;}
 
     @OneToMany
-    @JoinColumn(name = "", foreignKey = @ForeignKey(name = "FK_SCORE_PERSON"))
+    @JoinColumn(name = "PERSONID", foreignKey = @ForeignKey(name = "FK_SCORE_PERSON"))
     public Set<Person> getPersonId() {return personId;}
 
     public void setPersonId(Set<Person> personId) {this.personId = personId;}
