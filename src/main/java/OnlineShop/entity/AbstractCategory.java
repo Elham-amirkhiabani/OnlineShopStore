@@ -8,11 +8,12 @@ public class AbstractCategory {
     private Long id;
     private String name;
     private Long code;
-    private List<AbstractProduct> productList;
+//    private List<AbstractProduct> productList;
 
 
     public AbstractCategory() {
     }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "CtegorySequenceGenerator")
